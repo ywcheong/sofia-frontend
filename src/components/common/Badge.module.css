@@ -1,0 +1,60 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm, 4px);
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.sm {
+  padding: 2px 8px;
+  font-size: 0.8rem;
+}
+
+.md {
+  padding: 4px 12px;
+  font-size: 0.85rem;
+  border-radius: 999px;
+}
+
+.default {
+  background: var(--color-surface-secondary, #f3f4f6);
+  color: var(--color-ink-secondary, #6b7280);
+}
+
+.primary {
+  background: var(--color-accent, #c65d3b);
+  color: white;
+}
+
+.success {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.warning {
+  background: var(--color-warning-bg, #fef3c7);
+  color: #92400e;
+}
+
+.danger {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.info {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.gaonnuri {
+  background: var(--color-warning-bg, #fef3c7);
+  color: #92400e;
+}
+
+.external {
+  background: #e0e7ff;
+  color: #3730a3;
+}

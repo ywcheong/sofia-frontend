@@ -1,0 +1,87 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3xl);
+  text-align: center;
+  border-radius: var(--radius-lg);
+  gap: var(--space-md);
+}
+
+/* Warning variant (4xx) */
+.warning {
+  background: var(--color-warning-bg, #FEF3C7);
+  color: #92400E;
+  border: 1px solid rgba(180, 130, 50, 0.2);
+}
+
+.warning .icon {
+  background: #FDE68A;
+  color: #92400E;
+}
+
+.warning .retryButton {
+  background: #92400E;
+}
+
+.warning .retryButton:hover {
+  background: #78350F;
+}
+
+/* Error variant (5xx or no status code) */
+.error {
+  background: #FEE2E2;
+  color: #991B1B;
+  border: 1px solid rgba(200, 50, 50, 0.2);
+}
+
+.error .icon {
+  background: #FECACA;
+  color: #991B1B;
+}
+
+.error .retryButton {
+  background: #991B1B;
+}
+
+.error .retryButton:hover {
+  background: #7F1D1D;
+}
+
+/* Icon */
+.icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-radius: 50%;
+}
+
+/* Message */
+.message {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 400px;
+}
+
+/* Retry Button */
+.retryButton {
+  padding: var(--space-sm) var(--space-lg);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.retryButton:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
