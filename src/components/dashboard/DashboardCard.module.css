@@ -1,0 +1,141 @@
+.card {
+  background-color: #fff;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-light);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: var(--color-border);
+  transition: background-color var(--transition-fast);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Variants */
+.card.accent::before {
+  background-color: var(--color-accent);
+}
+
+.card.success::before {
+  background-color: var(--color-success);
+}
+
+.card.warning::before {
+  background-color: var(--color-warning);
+}
+
+/* Header */
+.header {
+  margin-bottom: var(--space-md);
+}
+
+.titleRow {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-secondary);
+  color: var(--color-ink-tertiary);
+  flex-shrink: 0;
+}
+
+.card.accent .icon {
+  background-color: var(--color-accent-light);
+  color: var(--color-accent);
+}
+
+.card.success .icon {
+  background-color: var(--color-success-light);
+  color: var(--color-success);
+}
+
+.card.warning .icon {
+  background-color: var(--color-warning-light);
+  color: var(--color-warning);
+}
+
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.title {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-ink-tertiary);
+  letter-spacing: 0;
+}
+
+.subtitle {
+  font-size: 0.75rem;
+  color: var(--color-ink-muted);
+}
+
+/* Content */
+.content {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-sm);
+}
+
+.value {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-ink-primary);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.change {
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.change.increase {
+  background-color: var(--color-success-light);
+  color: var(--color-success);
+}
+
+.change.decrease {
+  background-color: var(--color-error-light);
+  color: var(--color-error);
+}
+
+.change.neutral {
+  background-color: var(--color-bg-secondary);
+  color: var(--color-ink-tertiary);
+}
+
+/* Footer */
+.footer {
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border-light);
+}

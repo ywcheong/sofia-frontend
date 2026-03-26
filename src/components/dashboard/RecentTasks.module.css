@@ -1,0 +1,128 @@
+.container {
+  background-color: #fff;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-lg);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-ink-primary);
+}
+
+.count {
+  font-size: 0.8rem;
+  color: var(--color-ink-muted);
+  background-color: var(--color-bg-secondary);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+}
+
+.empty {
+  padding: var(--space-2xl);
+  text-align: center;
+  color: var(--color-ink-muted);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--color-border-light);
+  transition: background-color var(--transition-fast);
+  opacity: 0;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item:hover {
+  background-color: var(--color-bg-secondary);
+}
+
+.iconWrapper {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.completedIcon {
+  color: var(--color-success);
+}
+
+.pendingIcon {
+  color: var(--color-ink-muted);
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.description {
+  display: block;
+  font-weight: 500;
+  color: var(--color-ink-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-top: 2px;
+  font-size: 0.8rem;
+  color: var(--color-ink-muted);
+}
+
+.type {
+  color: var(--color-ink-tertiary);
+}
+
+.separator {
+  color: var(--color-border);
+}
+
+.assignee {
+  color: var(--color-accent);
+}
+
+.charCount {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-success);
+  background-color: var(--color-success-light);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.warning {
+  color: var(--color-warning);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
