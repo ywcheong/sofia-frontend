@@ -1,0 +1,450 @@
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeIn 0.4s ease;
+}
+
+/* Header */
+.pageHeader {
+  margin-bottom: var(--space-xl);
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-lg);
+}
+
+.titleGroup {
+  flex: 1;
+}
+
+.pageTitle {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-ink-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-xs);
+}
+
+.pageSubtitle {
+  font-size: 0.95rem;
+  color: var(--color-ink-tertiary);
+}
+
+/* Translation Section */
+.translationSection {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  align-items: stretch;
+}
+
+.inputPanel,
+.outputPanel {
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-bottom: none;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-ink-secondary);
+}
+
+.panelHeader svg {
+  color: var(--color-accent);
+}
+
+.copyAllButton {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-left: auto;
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  color: var(--color-ink-tertiary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.copyAllButton:hover {
+  background: var(--color-bg-hover);
+  color: var(--color-ink-primary);
+  border-color: var(--color-ink-muted);
+}
+
+.textInput,
+.textOutput {
+  flex: 1;
+  width: 100%;
+  padding: var(--space-md);
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-ink-primary);
+  resize: vertical;
+  line-height: 1.7;
+  transition: all var(--transition-fast);
+}
+
+.textInput:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-light);
+}
+
+.textOutput {
+  flex: 1;
+  width: 100%;
+  padding: var(--space-md);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-ink-primary);
+  line-height: 1.7;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.placeholder {
+  color: var(--color-ink-muted);
+}
+
+.resultLine {
+  min-height: 1.7em;
+}
+
+.highlightedTerm {
+  font-weight: 700;
+  color: var(--color-accent);
+  background: var(--color-accent-light);
+  padding: 0 2px;
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+}
+
+.highlightedTerm:hover {
+  background: var(--color-accent-lighter, rgba(79, 70, 229, 0.3));
+}
+
+/* Tooltip */
+.tooltip {
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--color-ink-primary);
+  color: white;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  box-shadow: var(--shadow-lg);
+  white-space: nowrap;
+  animation: tooltipFadeIn 0.15s ease;
+}
+
+.tooltip::before {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: var(--color-ink-primary);
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.tooltipKorean {
+  font-weight: 500;
+}
+
+.tooltipArrow {
+  opacity: 0.6;
+}
+
+.tooltipEnglish {
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.textInput::placeholder {
+  color: var(--color-ink-muted);
+}
+
+.translateButtonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.translateButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg);
+  background: var(--color-accent);
+  color: white;
+  border: none;
+  border-radius: var(--radius-lg);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.translateButton:hover:not(:disabled) {
+  background: var(--color-accent-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.translateButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.loadingIcon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error State */
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2xl);
+  text-align: center;
+  color: var(--color-error);
+  background: var(--color-error-light);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.retryButton {
+  margin-top: var(--space-md);
+  padding: var(--space-sm) var(--space-lg);
+  background: var(--color-error);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.retryButton:hover {
+  opacity: 0.9;
+}
+
+/* Mappings Section */
+.mappingsSection {
+  margin-bottom: var(--space-xl);
+}
+
+.mappingsHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.mappingsHeader h2 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-ink-primary);
+  margin: 0;
+}
+
+.mappingCount {
+  font-size: 0.85rem;
+  color: var(--color-ink-muted);
+  background: var(--color-bg-tertiary);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+/* Mappings List */
+.mappingsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* Mapping Card */
+.mappingCard {
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md) var(--space-lg);
+  transition: all var(--transition-fast);
+}
+
+.mappingCard:hover {
+  border-color: var(--color-ink-muted);
+  box-shadow: var(--shadow-sm);
+}
+
+.mappingInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.koreanTerm {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-ink-primary);
+  min-width: 100px;
+}
+
+.arrowIcon {
+  color: var(--color-ink-muted);
+  flex-shrink: 0;
+}
+
+.englishTerm {
+  flex: 1;
+  font-size: 0.95rem;
+  color: var(--color-ink-secondary);
+  font-style: italic;
+}
+
+.copyButton {
+  padding: var(--space-xs);
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-ink-tertiary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.copyButton:hover {
+  background: var(--color-bg-hover);
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+/* Empty State */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3xl);
+  text-align: center;
+}
+
+.emptyIcon {
+  color: var(--color-border);
+  margin-bottom: var(--space-lg);
+}
+
+.emptyText {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-ink-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.emptySubtext {
+  font-size: 0.9rem;
+  color: var(--color-ink-muted);
+  max-width: 400px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .translationSection {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .translateButtonWrapper {
+    order: 2;
+  }
+
+  .translateButton {
+    width: 100%;
+  }
+
+  .inputPanel {
+    order: 1;
+  }
+
+  .outputPanel {
+    order: 3;
+  }
+
+  .inputPanel,
+  .outputPanel {
+    min-height: 250px;
+  }
+
+  .mappingInfo {
+    flex-wrap: wrap;
+  }
+
+  .koreanTerm {
+    min-width: auto;
+  }
+
+  .arrowIcon {
+    transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .pageTitle {
+    font-size: 1.5rem;
+  }
+}
