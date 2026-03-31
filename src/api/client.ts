@@ -1,6 +1,5 @@
 import { toast } from 'react-toastify';
-
-const API_BASE = '';
+import { BACKEND_BASE_URL } from '@/config';
 
 export class ApiError extends Error {
   public readonly status: number;
@@ -65,7 +64,7 @@ async function fetchApi<T>(path: string, options?: FetchApiOptions): Promise<T> 
   const token = getAuthToken();
   const { method, body, returnType = 'json' } = options || {};
 
-  const response = await fetch(`${API_BASE}${path}`, {
+  const response = await fetch(`${BACKEND_BASE_URL}${path}`, {
     method,
     ...(body !== undefined ? { body: JSON.stringify(body) } : {}),
     headers: {

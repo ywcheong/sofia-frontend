@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { BACKEND_BASE_URL } from '@/config';
 
 export function useHealthCheck(intervalMs: number = 10000): boolean | null {
   const [isHealthy, setIsHealthy] = useState<boolean | null>(null);
@@ -6,7 +7,7 @@ export function useHealthCheck(intervalMs: number = 10000): boolean | null {
   useEffect(() => {
     const checkHealth = async () => {
       try {
-        const response = await fetch('/health');
+        const response = await fetch(`${BACKEND_BASE_URL}/health`);
         if (response.status === 200) {
           const text = await response.text();
           if (text === 'ok') {

@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from 'react';
 import type { AuthUser } from '@/types/api';
-import { config } from '@/config';
+import { config, BACKEND_BASE_URL } from '@/config';
 
 interface AuthContextValue {
   user: AuthUser | null;
@@ -52,7 +52,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const verifyToken = useCallback(async (tokenToVerify: string): Promise<AuthUser | null> => {
     try {
-      const response = await fetch('/auth/check', {
+      const response = await fetch(`${BACKEND_BASE_URL}/auth/check`, {
         headers: {
           'Authorization': `${config.authTokenPrefix} ${tokenToVerify}`,
         },
