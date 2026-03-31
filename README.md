@@ -20,6 +20,8 @@ npm run lint    # ESLint 검사
 npm run build   # 타입체크 + 프로덕션 빌드
 ```
 
+빌드 과정에서 `VITE_GAONNURI_BASE_URL`, `VITE_BACKEND_BASE_URL` 인자를 환경변수로 제공할 수 있습니다.
+
 ## CI/CD
 
 - **CI**: main 브랜치에 PR이 열리면 lint 및 build 검사를 실행합니다.

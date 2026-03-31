@@ -1,16 +1,19 @@
 // 가온누리 게시글 기본 URL
-// 환경 변수 VITE_GAONNURI_BASE_URL이 설정되어 있으면 사용, 없으면 기본값 사용
 export const GAONNURI_BASE_URL =
-  import.meta.env.VITE_GAONNURI_BASE_URL || 'http://sofia-api.ywcheong.com:8080';
+  import.meta.env.VITE_GAONNURI_BASE_URL || 'http://example.com/';
+
+// 백엔드 API 기본 URL
+// 프로덕션: VITE_BACKEND_BASE_URL=https://sofia-api.ywcheong.com
+// 개발: VITE_BACKEND_BASE_URL='' (빈 값 → vite proxy가 대신 전달)
+export const BACKEND_BASE_URL =
+  import.meta.env.VITE_BACKEND_BASE_URL || 'http://sofia-api.ywcheong.com:8080';
 
 interface Config {
-  apiBaseUrl: string;
   authTokenPrefix: string;
   apiTimeout: number;
 }
 
 export const config: Config = {
-  apiBaseUrl: import.meta.env.VITE_API_BASE_URL || '',
   authTokenPrefix: 'user',
   apiTimeout: 30000,
 };
