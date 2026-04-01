@@ -50,8 +50,8 @@ export function reportCompletion(
   return api.post<ReportCompletionResponse>(`/tasks/${taskId}/completion`, body);
 }
 
-export function getPerformanceReportUrl(): string {
-  return '/tasks/reports/performance.csv';
+export function downloadPerformanceReport(): Promise<Blob> {
+  return api.get<Blob>('/tasks/csv', 'blob');
 }
 
 export function deleteTask(taskId: string): Promise<void> {

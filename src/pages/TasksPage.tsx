@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import {
   getTasks,
   createTask,
-  getPerformanceReportUrl,
+  downloadPerformanceReport,
   deleteTask,
   changeAssignee,
   type SortField as ApiSortField,
@@ -265,14 +265,20 @@ export function TasksPage() {
     }
   };
 
-  const handleDownloadReport = () => {
-    const url = getPerformanceReportUrl();
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'performance.csv';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const handleDownloadReport = async () => {
+    try {
+      const blob = await downloadPerformanceReport();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'performance.xlsx';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch {
+      // 에러는 API 클라이언트에서 처리됨
+    }
   };
 
   const handleOpenDeleteModal = (task: TaskSummaryResponse) => {

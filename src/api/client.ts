@@ -52,7 +52,7 @@ export function buildQueryString(params: Record<string, string | number | boolea
   return searchParams.toString() ? `?${searchParams.toString()}` : '';
 }
 
-type ReturnTypeOption = 'json' | 'void';
+type ReturnTypeOption = 'json' | 'void' | 'blob';
 
 interface FetchApiOptions {
   method?: string;
@@ -86,6 +86,10 @@ async function fetchApi<T>(path: string, options?: FetchApiOptions): Promise<T> 
     throw new ApiError(errorMessage, response.status);
   }
 
+  if (returnType === 'blob') {
+    return response.blob() as Promise<T>;
+  }
+
   if (returnType === 'void') {
     return undefined as T;
   }
@@ -98,7 +102,8 @@ async function fetchApi<T>(path: string, options?: FetchApiOptions): Promise<T> 
 }
 
 export const api = {
-  get: <T>(path: string) => fetchApi<T>(path, { method: 'GET' }),
+  get: <T>(path: string, returnType?: ReturnTypeOption) =>
+    fetchApi<T>(path, { method: 'GET', returnType }),
   post: <T>(path: string, body?: unknown, returnType?: ReturnTypeOption) =>
     fetchApi<T>(path, { method: 'POST', body, returnType }),
   put: <T>(path: string, body?: unknown) =>
