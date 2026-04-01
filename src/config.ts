@@ -1,6 +1,6 @@
 // 가온누리 게시글 기본 URL
 export const GAONNURI_BASE_URL =
-  import.meta.env.VITE_GAONNURI_BASE_URL || 'http://example.com/';
+  import.meta.env.VITE_GAONNURI_BASE_URL || 'http://example.com';
 
 // 백엔드 API 기본 URL
 // 프로덕션: VITE_BACKEND_BASE_URL=https://sofia-api.ywcheong.com
